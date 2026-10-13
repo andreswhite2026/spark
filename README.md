@@ -1,74 +1,113 @@
-# Apache Spark - Proyecto de análisis real con PySpark
+# Apache Spark - Proyecto real de análisis con PySpark
 
-Este proyecto demuestra un ejemplo real de Apache Spark usando Python.
+Este repositorio contiene un proyecto real y educativo de Apache Spark usando Python.
 
-## ¿Qué hace?
+## ¿Qué es este proyecto?
 
-El script principal lee un archivo CSV de ventas, calcula subtotales, suma ingresos totales, calcula el promedio por venta y agrupa resultados por producto y cliente.
+Es un ejemplo mínimo pero real de Spark en local para analizar un archivo CSV de ventas.
 
-## Estructura
+Hace lo siguiente:
+- lee datos desde `data/sales.csv`
+- calcula el subtotal por venta
+- suma el total de ingresos
+- calcula el promedio por venta
+- agrupa ventas por producto
+- agrupa ventas por cliente
+- imprime resultados en la consola
+
+## ¿Qué no es?
+
+Esto no es:
+- una app web completa
+- un backend HTTP real de producción
+- una base de datos
+- un servidor de ventas
+
+Esto sí es un ejemplo real de Apache Spark con Python (PySpark).
+
+## Estructura del repositorio
 
 ```text
 spark/
 ├── README.md
-├── GUIA_SPARK.md
 ├── requirements.txt
 ├── run.sh
 ├── spark_sales_analysis.py
 ├── data/
 │   └── sales.csv
+├── docs/
+│   ├── 01-introduccion-apache-spark.md
+│   ├── 02-instalacion-y-ejecucion.md
+│   ├── 03-explicacion-del-proyecto.md
+│   ├── 04-conceptos-y-funcionalidades.md
+│   └── 05-relacion-con-airflow.md
 ├── app.js
 ├── index.html
 ├── styles.css
 ├── server.py
-└── .gitignore
+├── .gitignore
+└── .venv/
 ```
 
-## Requisitos
+## Documentación separada
 
-- Python 3
-- Java (Spark lo necesita)
-- PySpark
+1. [Introducción a Apache Spark](docs/01-introduccion-apache-spark.md)
+2. [Instalación y ejecución](docs/02-instalacion-y-ejecucion.md)
+3. [Explicación del proyecto](docs/03-explicacion-del-proyecto.md)
+4. [Conceptos y funcionalidades](docs/04-conceptos-y-funcionalidades.md)
+5. [Relación con Airflow](docs/05-relacion-con-airflow.md)
 
-## Instalación
+## Instalación y ejecución
+
+### Opción recomendada: setup + run
+
+```bash
+cd /home/cohorte5/Descargas/spark
+chmod +x setup.sh run.sh
+./setup.sh
+./run.sh
+```
+
+### Opción manual
 
 ```bash
 cd /home/cohorte5/Descargas/spark
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-```
-
-## Ejecución
-
-```bash
-cd /home/cohorte5/Descargas/spark
-source .venv/bin/activate
 python3 spark_sales_analysis.py
 ```
 
-O con:
+## Requisitos necesarios
 
-```bash
-cd /home/cohorte5/Descargas/spark
-chmod +x run.sh
-./run.sh
+- Python 3
+- Java instalado en el sistema
+- Dependencias listadas en `requirements.txt`
+
+Archivo de requisitos:
+
+```txt
+pyspark==3.5.1
 ```
 
-## Explicación rápida
+## Archivo principal
 
-- `SparkSession` crea la sesión de Spark
-- `read.csv()` lee los datos
-- `withColumn()` crea la columna subtotal
-- `count()` cuenta filas
-- `sum()` y `avg()` calculan métricas
-- `groupBy()` agrega por producto o cliente
-- `show()` imprime resultados
+```text
+spark_sales_analysis.py
+```
 
-## Documentación completa
+Este archivo es el núcleo del proyecto. Aquí se crea la sesión de Spark, se leen los datos, se transforman y se muestran los resultados.
 
-Consulta `GUIA_SPARK.md` para una explicación detallada paso a paso.
+## Requisitos
 
-## Diferencia con un proyecto web
+- Python 3
+- Java (requisito para Spark)
+- PySpark
 
-Este proyecto no es un servidor web. Es un ejemplo real de Apache Spark usando PySpark para análisis de datos.
+## En resumen
+
+Este proyecto demuestra cómo Apache Spark se usa realmente para analizar datos con Python. Es una versión educativa, pequeña y ejecutable, pero mantiene la lógica real del framework.
+
+## Repositorio GitHub
+
+https://github.com/andreswhite2026/spark
